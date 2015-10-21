@@ -1,71 +1,36 @@
 package repository;
 
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import mapper.MemberMapper;
+import vo.Member;
+
+@Component
 public class MemberDao {
-	private int memberNum;
-	private String id;
-	private String password;
-	private String name;
-	private String nickname;
-	private String email;		
+	private SqlSessionTemplate session;
 	
-	public MemberDao() {
-		super();
-	}
-
-	public MemberDao(String id, String password, String name, String nickname, String email) {
-		super();
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.nickname = nickname;
-		this.email = email;
-	}
-
-	public int getMemberNum() {
-		return memberNum;
+	@Autowired
+	public void setSession(SqlSessionTemplate session) {
+		this.session = session;
 	}
 	
-	public void setMemberNum(int memberNum) {
-		this.memberNum = memberNum;
+	public int insertMember(Member member){
+		return session.getMapper(MemberMapper.class).insertMember(member);
 	}
 	
-	public String getId() {
-		return id;
+	public int updateMember(Member member){
+		return session.getMapper(MemberMapper.class).updateMember(member);
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public Member selectMember(String id){
+		return session.getMapper(MemberMapper.class).select(id);
 	}
 	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getNickname() {
-		return nickname;
-	}
-	
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
+	public List<Member> selectListMember(){
+		return session.getMapper(MemberMapper.class).selectList();
 	}
 }
