@@ -1,6 +1,6 @@
 package vo;
 
-public class MovieComment {
+public class Comment {
 	public String movie_title;
 	public int comment_num;
 	public String id;
@@ -9,11 +9,10 @@ public class MovieComment {
 
 	/////////////////////////////////////////////////////////
 
-	public MovieComment() {
+	public Comment() {
 	}
 	
-	public MovieComment(String movie_title, int comment_num, String id, String comment, int core) {
-		super();
+	public Comment(String movie_title, int comment_num, String id, String comment, int core) {
 		this.movie_title = movie_title;
 		this.comment_num = comment_num;
 		this.id = id;

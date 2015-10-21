@@ -3,7 +3,7 @@ package vo;
 import java.util.List;
 
 public class CommentPage {
-	private List<MovieComment> commentList;
+	private List<Comment> commentList;
 	private int startPage;
 	private int endPage;
 	private int totalPage;
@@ -12,7 +12,7 @@ public class CommentPage {
 	public CommentPage() {
 	}
 	
-	public CommentPage(List<MovieComment> commentList, int startPage, int endPage, int totalPage) {
+	public CommentPage(List<Comment> commentList, int startPage, int endPage, int totalPage) {
 		super();
 		this.commentList = commentList;
 		this.startPage = startPage;
@@ -22,11 +22,11 @@ public class CommentPage {
 
 	///////////////////////////////////
 
-	public List<MovieComment> getCommentList() {
+	public List<Comment> getCommentList() {
 		return commentList;
 	}
 
-	public void setCommentList(List<MovieComment> commentList) {
+	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
 	}
 
