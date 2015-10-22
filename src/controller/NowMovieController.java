@@ -19,7 +19,7 @@ public class NowMovieController {
 	}
 	///////////////////////////////
 	
-	@RequestMapping("/nowMoive.do")
+	@RequestMapping("/nowMovie.do")
 	public ModelAndView nowMovie(){
 		List<NowMovie> nowMovieList= service.selectNowMovieList();
 		
@@ -30,7 +30,7 @@ public class NowMovieController {
 		return mv;
 	}
 	
-	@RequestMapping("/nowMoiveRead.do")
+	@RequestMapping("/nowMovieRead.do")
 	public ModelAndView nowMovieRead(String movie_title){
 		NowMovie nowMovie= service.selectMovie(movie_title);
 		

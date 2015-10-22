@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mapper.NowMovieMapper">
 	
 	<select id="selectMovieList" resultType="NowMovie">
-		select * from now_movie oder by ymd
+		select * from now_movie order by ymd
 	</select>
 	
-	<select id="selectMovie" parameterType="Integer" resultType="NowMovie">
+	<select id="selectMovie" parameterType="String" resultType="NowMovie">
 		select * from now_movie where movie_title=#{movie_title}
 	</select>
 	
