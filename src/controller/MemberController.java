@@ -1,5 +1,7 @@
 package controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +34,27 @@ public class MemberController {
 			return "insertMember_false";
 		}
 	}
+	
+	@RequestMapping("/loginForm.do")
+	public String login(){
+		
+		return "loginform";
+	}
+	
+	@RequestMapping(value="logginForm.do", method = RequestMethod.POST)
+	public String memberlogging(String id, String password, HttpSession session){
+		session.setAttribute("id", id);
+		session.setAttribute("password", password);	
+		
+		Member original = service.select(id);
+		if(original.getPassword().equals(password)){
+			return "loggin_success";
+		}else{
+			return "loggin_false";
+		}
+	}
+	
+	
 	
 
 }

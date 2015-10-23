@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 
-	<select id="select" parameterType="Integer" resultMap="memberMap">
+	<select id="select" parameterType="String" resultMap="memberMap">
 		select * from member where id=#{id}
 	</select>
 

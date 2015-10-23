@@ -2,10 +2,10 @@
     pageEncoding="EUC-KR"%>
 <html>
 <head>
-<title>회원가입 실패</title>
+<title>로그인 실패</title>
 </head>
 <body>
- 회원가입 실패<br>
- <a href="register_Form.do">[회원다시가입하러 가기]</a> 
+  로그인 실패<br>
+  <a href="loginForm.do">[로그인 다시 하러 가기]</a>
 </body>
 </html>

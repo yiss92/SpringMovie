@@ -8,7 +8,7 @@
 </head>
 <body>
  회원가입성공<br>
- 
+ <a href="loginForm.do">[로긴하러가기]</a>
     
 </body>
 </html>
