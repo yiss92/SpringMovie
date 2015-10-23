@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.NowMovieService;
+import vo.Comment;
 import vo.NowMovie;
 
 @Controller
@@ -33,11 +34,12 @@ public class NowMovieController {
 	@RequestMapping("/nowMovieRead.do")
 	public ModelAndView nowMovieRead(String movie_title){
 		NowMovie nowMovie= service.selectMovie(movie_title);
+		List<Comment> nowMovieComment = service.nowMovieComent(movie_title);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("now_movie_read");
 		mv.addObject("nowMovie", nowMovie);
-		
+		mv.addObject("nowMovieComment", nowMovieComment);
 		return mv;
 	}
 	

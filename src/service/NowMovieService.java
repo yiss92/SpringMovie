@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import repository.CommentDao;
 import repository.NowMovieDao;
+import vo.Comment;
 import vo.NowMovie;
 
 @Component
@@ -35,7 +36,9 @@ public class NowMovieService {
 		return dao.selectMovie(movie_title);
 	}
 	
-
+	public List<Comment> nowMovieComent(String movie_title){
+		return cDao.nowMovieComent(movie_title);
+	}
 	
 //	public String selectMovieImage(String movie_title) {
 //		//이렇게 하면 안나오는데 어떻게 해야할지 모르겠으니 잠시 보류!

@@ -59,4 +59,8 @@ public class CommentDao {
 		return session.getMapper(CommentMapper.class).selectBest5();
 	}
 	
+	public List<Comment> nowMovieComent(String movie_title){
+		return session.getMapper(CommentMapper.class).nowMovieComent(movie_title);
+	}
+	
 }

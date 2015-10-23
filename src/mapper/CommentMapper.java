@@ -16,4 +16,6 @@ public interface CommentMapper {
 	
 	public List<String> selectBest5();
 	
+	public List<Comment> nowMovieComent(String movie_title);
+	
 }

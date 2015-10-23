@@ -96,30 +96,30 @@
 									<h5>장르 : ${nowMovie.genre_1} ${nowMovie.genre_2}</h5>
 									<h5>${nowMovie.story}</h5> 
 									
-<!-- 									<table border="1"> -->
-<!-- 										<tr> -->
-<!-- 											<th width="100" height="30">평점</th> -->
-<!-- 											<th width="400" height="30">한줄 평</th> -->
-<!-- 											<th width="100" height="30">ID</th> -->
-<!-- 										</tr> -->
-<%-- 										<c:choose> --%>
-<%-- 											<c:when test="${empty requestScope.now.movieTitle}"> --%>
-<!-- 												<tr> -->
-<!-- 													<td colspan="3"><br>-<br></td> -->
-<!-- 												</tr> -->
-<%-- 											</c:when> --%>
-<%-- 											<c:otherwise> --%>
-<%-- 												<c:forEach var="com" --%>
-<%-- 													items="${requestScope.comment.scoreList}"> --%>
-<!-- 													<tr> -->
-<%-- 														<td align=center>${com.score}</td> --%>
-<%-- 														<td align=center>${com.comment}</td> --%>
-<%-- 														<td align=center>${com.userId}</td> --%>
-<!-- 													</tr> -->
-<%-- 												</c:forEach> --%>
-<%-- 											</c:otherwise> --%>
-<%-- 										</c:choose> --%>
-<%-- 									</table>               <h5>${requestScope.comment.scoreList.comment} </h5> --%>
+									<table border="1">
+										<tr>
+											<th width="100" height="30">평점</th>
+											<th width="400" height="30">한줄 평</th>
+											<th width="100" height="30">ID</th>
+										</tr>
+										<c:choose>
+											<c:when test="${empty nowMovieComment}">
+												<tr>
+													<td colspan="3" align="center"><br>-<br></td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<c:forEach var="n" items="${nowMovieComment}">  
+													<tr>
+														<td align=center>${n.score}</td>
+														<td align=center>${n.comment}</td>
+														<td align=center>${n.id}</td>
+													</tr>
+ 												</c:forEach> 
+ 												
+											</c:otherwise>
+										</c:choose>
+									</table>             
 
 								</li>
 
