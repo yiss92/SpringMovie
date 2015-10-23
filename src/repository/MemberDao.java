@@ -26,6 +26,10 @@ public class MemberDao {
 		return session.getMapper(MemberMapper.class).updateMember(member);
 	}
 	
+	public int deleteMember(String id){
+		return session.getMapper(MemberMapper.class).deleteMember(id);
+	}
+	
 	public Member selectMember(String id){
 		return session.getMapper(MemberMapper.class).select(id);
 	}
