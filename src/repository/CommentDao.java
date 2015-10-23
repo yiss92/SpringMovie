@@ -45,7 +45,7 @@ public class CommentDao {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("startRow", startRow);
 		map.put("rowCount", rowCount);
-		return session.getMapper(CommentMapper.class).selectListComment(map);
+		return session.getMapper(CommentMapper.class).selectCommentList(map);
 	}
 
 	public int selectCount(){
@@ -58,4 +58,5 @@ public class CommentDao {
 	public List<String> selectBest5(){
 		return session.getMapper(CommentMapper.class).selectBest5();
 	}
+	
 }

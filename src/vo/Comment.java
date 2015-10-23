@@ -5,19 +5,19 @@ public class Comment {
 	public int comment_num;
 	public String id;
 	public String comment;
-	public int core;
+	public int score;
 
 	/////////////////////////////////////////////////////////
 
 	public Comment() {
 	}
-	
-	public Comment(String movie_title, int comment_num, String id, String comment, int core) {
+
+	public Comment(String movie_title, int comment_num, String id, String comment, int score) {
 		this.movie_title = movie_title;
 		this.comment_num = comment_num;
 		this.id = id;
 		this.comment = comment;
-		this.core = core;
+		this.score = score;
 	}
 
 	/////////////////////////////////////////////////////////
@@ -54,12 +54,11 @@ public class Comment {
 		this.comment = comment;
 	}
 
-	public int getCore() {
-		return core;
+	public int getScore() {
+		return score;
 	}
 
-	public void setCore(int core) {
-		this.core = core;
+	public void setScore(int score) {
+		this.score = score;
 	}
-
 }

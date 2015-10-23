@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectCommentList" parameterType="Map" resultType="Comment">
-		select * from movie_comment order by commnet_num desc 
+		select * from movie_comment order by comment_num desc 
 		limit #{startRow},#{rowCount}
 	</select>
 	
@@ -35,4 +35,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select movie_title from movie_comment group by movie_title
  		order by avg(score) desc limit 0,5;
 	</select>
+	
 </mapper>

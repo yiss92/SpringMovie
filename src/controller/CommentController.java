@@ -25,11 +25,10 @@ public class CommentController {
 	@RequestMapping("/comment.do")
 	public ModelAndView commentList(@RequestParam(defaultValue = "1") int page) {
 		CommentPage commentPage = service.getCommentPage(page);
-
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("comment_main");
 		mv.addObject("commentPage", commentPage);
-
+		
 		return mv;
 	}
 

@@ -11,8 +11,9 @@ public interface CommentMapper {
 	public int deleteComment(int comment_num);
 	
 	public Comment selectComment(int comment_num);
-	public List<Comment> selectListComment(Map<String, Integer> map);
+	public List<Comment> selectCommentList(Map<String, Integer> map);
 	public int selectCommentCount();
 	
 	public List<String> selectBest5();
+	
 }
