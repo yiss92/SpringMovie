@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import mapper.CommentMapper;
 import vo.Comment;
+import vo.NowMovie;
 
 @Component
 public class CommentDao {
@@ -55,7 +56,7 @@ public class CommentDao {
 	//
 	
 	
-	public List<String> selectBest5(){
+	public List<NowMovie> selectBest5(){
 		return session.getMapper(CommentMapper.class).selectBest5();
 	}
 	

@@ -9,6 +9,7 @@ public class NowMovie {
 	private String stars;
 	private String story;
 	private String ymd;
+	private int score;
 
 	////////////////////////////////////////////////////////////
 
@@ -16,7 +17,7 @@ public class NowMovie {
 	}
 
 	public NowMovie(String movie_title, String movie_image, String genre_1, String genre_2, String director,
-			String stars, String story, String ymd) {
+			String stars, String story, String ymd,int score) {
 		super();
 		this.movie_title = movie_title;
 		this.movie_image = movie_image;
@@ -26,6 +27,7 @@ public class NowMovie {
 		this.stars = stars;
 		this.story = story;
 		this.ymd = ymd;
+		this.score = score;
 	}
 
 	/////////////////////////////////////////////////////////////////////
@@ -93,5 +95,14 @@ public class NowMovie {
 	public void setYmd(String ymd) {
 		this.ymd = ymd;
 	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 
 }

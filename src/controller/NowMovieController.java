@@ -45,19 +45,15 @@ public class NowMovieController {
 	
 	
 	
+	@RequestMapping("/main.do")
+	public ModelAndView main(){
+		List<NowMovie> movieImage = service.selectMovieImage();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main");
+		mv.addObject("movieImage", movieImage);
+		
+		return mv;
 	
-	
-	
-//	@RequestMapping("/main.do")
-//	public ModelAndView main(String movie_title){
-//		String movieImage = service.selectMovieImage(movie_title);
-//		
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("main");
-//		mv.addObject("movieImage", movieImage);
-//		
-//		return mv;
-//	
-//	}
+	}
 	
 }

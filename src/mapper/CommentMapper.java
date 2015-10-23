@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import vo.Comment;
+import vo.NowMovie;
 
 public interface CommentMapper {
 	public int insertComment(Comment comment);
@@ -14,7 +15,7 @@ public interface CommentMapper {
 	public List<Comment> selectCommentList(Map<String, Integer> map);
 	public int selectCommentCount();
 	
-	public List<String> selectBest5();
+	public List<NowMovie> selectBest5();
 	
 	public List<Comment> nowMovieComent(String movie_title);
 	

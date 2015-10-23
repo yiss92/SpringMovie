@@ -40,14 +40,9 @@ public class NowMovieService {
 		return cDao.nowMovieComent(movie_title);
 	}
 	
-//	public String selectMovieImage(String movie_title) {
-//		//이렇게 하면 안나오는데 어떻게 해야할지 모르겠으니 잠시 보류!
-//		for(String a :cDao.selectBest5()){
-//		movie_title=dao.selectMovieImage(a);
-//		}
-//		
-//		return movie_title;
-//		
-//	}
+	public List<NowMovie> selectMovieImage() {
+		return cDao.selectBest5(); //이게 리스트로 된 영화이름5개
+		
+	}
 
 }
