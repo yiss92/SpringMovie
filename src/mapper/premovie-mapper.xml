@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mapper.PreMemberMapper">
 	<insert id="insertPreMovie" parameterType="PreMovie">
 		insert into
-		pre_movie(movie_image,movie_image,genre_1genre_2,stars,story,ymd)
-		values(#{movieImage},#{movieImage},#{genre_1},#{genre_2},#{director},#{stars},#{story),#{ymd})
+		pre_movie(movie_title,movie_image,genre_1,genre_2,director,stars,story,ymd)
+		values(#{movieTitle},#{movieImage},#{genre_1},#{genre_2},#{director},#{stars},#{story},#{ymd})
 	</insert>
 
 	<!-- <update id="updatePreMovice" parameterType="PreMovie"> -->
