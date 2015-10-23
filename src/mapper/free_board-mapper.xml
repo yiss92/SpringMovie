@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MessageBoardMapper">
+
+	<insert id="insertComment" parameterType="FreeBoard">
+		INSERT INTO
+		FREEBOARD(GUEST_NAME, PASSWORD, TITLE, COMMENT, DATE, BOARD_PAGE)
+		VALUES(#{guestName},#{password},#{title},#{comment},#{date},#{boardPage})
+	</insert>
+
+	<update id="upodateComment" parameterType="FreeBoard">
+		UPDATE FREEBOARD SET
+		COMMENT=#{comment} WHERE MESSAGE_ID=#{messageId}
+	</update>
+
+	<delete id="deleteComment" parameterType="Integer">
+		DELETE FROM FREEBOARD
+		WHERE MESSAGE_ID=#{messageId}
+	</delete>
+
+	<select id="selectComment" parameterType="Integer" resultMap="freeboardMap">
+		SELECT * FROM FREEBOARD WHERE MESSAGE_ID=#{messageId}
+	</select>
+
+	<select id="selectCommentList" parameterType="Map" resultMap="freeboardMap">
+		SELECT * FROM GUESTBOOK ORDER BY MESSAGE_ID DESC
+		LIMIT #{startRow},#{rowCount}
+	</select>
+
+	<select id="selectCommentTotalCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM FREEBOARD
+	</select>
+
+	<resultMap type="FreeBoard" id="freeboardMap">
+		<result column="MESSAGE_ID" property="messageId" />
+		<result column="GUEST_NAME" property="guestName" />
+		<result column="PASSWORD" property="password" />
+		<result column="TITLE" property="title" />
+		<result column="COMMENT" property="comment" />
+		<result column="DATE" property="date" />
+		<result column="BOARD_PAGE" property="boardPage" />
+	</resultMap>
+
+</mapper>
