@@ -14,7 +14,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	</head>
 	<body style="width:100%;overflow-x:hidden;overflow-y:hidden">
-		<form action="movie" class="LogInForm" method="post">
+		<form action="register_Form.do" class="LogInForm" method="post">
 			ID<input type="text" name="member_id" size="-5">
 			PW<input type="password" name="member_pw" size="-5">
 			<input type="submit" value="로그인"><input type="hidden" name="type" value="login">

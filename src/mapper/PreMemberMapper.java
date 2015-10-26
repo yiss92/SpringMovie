@@ -11,6 +11,7 @@ public interface PreMemberMapper {
 	public int deletePreMovice(String movie_title);
 	public PreMovie select(String movie_title);
 	public List<PreMovie> selectFileList(Map<String, Integer> map);
-	public int PageTotalCount();
-
+	public int PageTotalCount();   
+	
+	public String selectMovieImage(String movieTitle);
 }
