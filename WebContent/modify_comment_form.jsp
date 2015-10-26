@@ -92,68 +92,14 @@
 				<div class="row">
 					<article class="span8">
 						<br>
-						<form action="writeComment.do" method="post">
-							영화제목 : <input type="text" name="movie_title" size="20"><br>
-							한줄평 : <input type="text" name="comment" size="20"><br>
-							평점 : <input type="text" name="score" size="20"><br>
+						<form action="modifyComment.do" method="post">
+							영화제목 : <input type="text" name="movie_title" size="20" value="${original.movie_title}"><br>
+							한줄평 : <input type="text" name="comment" size="20" value="${original.comment}"><br>
+							평점 : <input type="text" name="score" size="20" value="${original.score}"><br>
 
-							<input type="submit" value="작성">
-
+							<input type="submit" value="수정">
+							<input type="hidden" name="comment_num" value="${original.comment_num}" >
 						</form>
-
-
-
-						<hr>
-
-						<table border="1">
-							<c:choose>
-								
-								<c:when test="${empty commentPage.commentList}">
-									<%-- 							<c:if test="${empty commentPage.commentList} "> --%>
-									<tr>
-										<td>아직 평점이 없습니다.좀 적고 가주세요</td>
-									</tr>
-									<%-- 							</c:if> --%>
-								</c:when>
-								<c:otherwise>
-									<tr>
-											<th>글 번호</th>
-											<th>영화제목</th>
-											<th>아이디</th>
-											<th>한줄 평</th>
-											<th>평점</th>
-									</tr>
-									
-									<%-- 							<c:if test="${! empty commentPage.commentList} "> --%>
-									<c:forEach var="c" items="${commentPage.commentList}">
-										
-										<tr>
-											<td>${c.getComment_num()}</td> 
-											<td>${c.movie_title} </td> 
-											<td>${c.id} </td> 
-											<td>${c.comment}</td>
-											<td>${c.score}</td> 
-										</tr>
-										<tr>
-											<td colspan="5" align="right">
-											<a href="modifyCommentForm.do?comment_num=${c.comment_num}">[수정]</a>
-											<a href="deleteComment.do?comment_num=${c.comment_num}">[삭제]</a>
-											<input type="hidden" name="comment_num" value="${c.comment_num}" >
-											</td>
-										</tr>
-									</c:forEach>
-
-									<tr>
-										<td colspan="5"><c:forEach begin="${commentPage.startPage}"
- 												end="${commentPage.endPage}" var="p">  
-  												<a href="comment.do?page=${p}"> [${p}]</a> 
-  											</c:forEach></td>  
-									</tr>
-								</c:otherwise>
-								<%-- 							</c:if> --%>
-							</c:choose>
-						</table>
-
 
 					</article>
 				</div>

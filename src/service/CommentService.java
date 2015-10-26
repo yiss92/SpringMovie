@@ -2,6 +2,9 @@ package service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,9 +21,15 @@ public class CommentService {
 		this.dao = dao;
 	}
 
+	
+	
+	private HttpSession session;
 	//////////////////////////////////////////
 
-	public boolean writeComment(Comment comment) {
+	public boolean writeComment(Comment comment,HttpServletRequest request) {
+		session=request.getSession();
+		String id= (String)session.getAttribute("id");
+		comment.setId(id);
 		if (dao.insert(comment) > 0) {
 			return true;
 		} else {
@@ -32,14 +41,30 @@ public class CommentService {
 		return dao.select(comment_num);
 	}
 
-	public boolean modifyComment(Comment comment) {
-		// 나중에 id session만들면
+	public boolean modifyComment(Comment comment,HttpServletRequest request) {
+		Comment original = dao.select(comment.comment_num);
+		
+		session = request.getSession();
+		String id= (String)session.getAttribute("id");
+		
+		
+		if(original.getId().equals(id)){
+			dao.update(comment);
+		}
+		
 		return true;
 	}
 
-	public boolean deleteComment(Comment comment) {
-		// 나중에 id session만들면
-		//변수도 바뀔꺼야
+	public boolean deleteComment(Comment comment,HttpServletRequest request) {
+	Comment original = dao.select(comment.comment_num);
+		
+		session = request.getSession();
+		String id= (String)session.getAttribute("id");
+		
+		if(original.getId().equals(id)){
+			dao.delete(comment.comment_num);
+		}
+		
 		return true;
 	}
 

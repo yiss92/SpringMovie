@@ -1,5 +1,7 @@
 package controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +35,9 @@ public class CommentController {
 	}
 
 	@RequestMapping(value = "/writeComment.do", method = RequestMethod.POST)
-	public String write(Comment comment) {
+	public String write(Comment comment,HttpServletRequest request) {
 
-		if (service.writeComment(comment)) {
+		if (service.writeComment(comment,request)) {
 			return "write_comment_success";
 		} else {
 			return "write_comment_fail";
@@ -54,29 +56,28 @@ public class CommentController {
 	}
 
 	@RequestMapping("/modifyComment.do")
-	public String modify(Comment comment) {
-		if (service.modifyComment(comment)) {
+	public String modify(Comment comment,HttpServletRequest request) {
+		if (service.modifyComment(comment, request)) {
 			return "modify_comment_success";
 		} else {
 			return "modify_comment_fail";
 		}
 	}
 
-	@RequestMapping("/deleteCommentForm.do")
-	public ModelAndView deleteForm(int comment_num) {
-		Comment original = service.selectComment(comment_num);
-
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("original", original);
-		mv.setViewName("delete_comment_form");
-
-		return mv;
-	}
+//	@RequestMapping("/deleteCommentForm.do")
+//	public ModelAndView deleteForm(int comment_num) {
+//		Comment original = service.selectComment(comment_num);
+//
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("original", original);
+//		mv.setViewName("delete_comment_form");
+//
+//		return mv;
+//	}
 
 	@RequestMapping("/deleteComment.do")
-	public String delete(Comment comment) {
-		// 서비스에서 변수바뀌면 수정해야해!!
-		if (service.deleteComment(comment)) {
+	public String delete(Comment comment,HttpServletRequest request) {
+		if (service.deleteComment(comment,request)) {
 			return "delete_comment_success";
 		} else {
 			return "delete_comment_fail";
