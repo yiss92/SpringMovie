@@ -63,10 +63,10 @@
 							</a>
 							<div class="nav-collapse nav-collapse_  collapse">
 								<ul class="nav sf-menu">
-									<li class="sub-menu active"><a href="Mmovie?type=nowMovie">상영작</a></li>
+									<li class="sub-menu active"><a href="nowMovie.do">상영작</a></li>
 									<li><a href="Mmovie?type=soonMovie">개봉예정</a> <!--                       <ul> -->
 									</li>
-									<li><a href="index-2.html">평점</a></li>
+									<li><a href="comment.do">평점</a></li>
 									<li><a href="index-3.html">리뷰</a></li>
 									<li><a href="board?type=list">게시판</a></li>
 								</ul>

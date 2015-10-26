@@ -67,13 +67,13 @@
 							</a>
 							<div class="nav-collapse nav-collapse_  collapse">
 								<ul class="nav sf-menu">
-									<li><a href="index.html">상영작</a></li>
+									<li><a href="nowMovie.do">상영작</a></li>
 									<li><a href="index-1.html">개봉예정</a> <!--                       <ul> -->
 										<!--                     <li><a href="#">Dolore </a></li> -->
 										<!--                     <li><a href="#">Consecte</a></li> -->
 										<!--                     <li><a href="#">Conseq</a></li> --> <!--                   </ul> -->
 									</li>
-									<li class="sub-menu active"><a href="index-2.html">평점</a></li>
+									<li class="sub-menu active"><a href="comment.do">평점</a></li>
 									<li><a href="index-3.html">리뷰</a></li>
 									<li><a href="index-4.html">게시판</a></li>
 								</ul>
@@ -92,7 +92,7 @@
 				<div class="row">
 					<article class="span8">
 						<br>
-						<form action="writeComment.do" method="post">
+						<form action="writeComment.do" method="post" >
 							영화제목 : <input type="text" name="movie_title" size="20"><br>
 							한줄평 : <input type="text" name="comment" size="20"><br>
 							평점 : <input type="text" name="score" size="20"><br>
@@ -105,7 +105,7 @@
 
 						<hr>
 
-						<table border="1">
+						<table border="1" >
 							<c:choose>
 								
 								<c:when test="${empty commentPage.commentList}">
