@@ -93,14 +93,15 @@
 								<div class="thumbnail thumbnail-1">
 									<section>
 										<form action="PreMovieRead.do" method="post">
-<!-- 											<input type="hidden" name="type" value="nowMovieRead"> -->
+<!-- 											<input type="hidden" name="type" value="preMovieRead"> -->
 											<input type="hidden" name="movieTitle" value="${pre.movieTitle}">
 											<input type="image" src="${pre.movieImage}" style="width: 245px;">
 										</form>
 										<font color="orange"><b>${pre.movieTitle}</b></font> (${pre.ymd})<br>
 										감독 : ${pre.director}<br>
 										배우 : ${pre.stars}<br>
-										<br>
+<%-- 										평점 : ${pre.score} --%>
+
 									</section>
 								</div>
 							</li>
