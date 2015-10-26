@@ -21,16 +21,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from pre_movie where movie_title=#{movieTitle}
 	</select>
 
-	<!-- <select id="selectFileList" parameterType="Map" resultMap=""> -->
-	<!-- select * from pre_movie order by file_num desc -->
-	<!-- limit #{startRow},#{rowCount} -->
-	<!-- </select> -->
+	<select id="selectFileList" parameterType="Map" resultMap="premovieMap">
+	select * from pre_movie order by ymd
+	limit #{startRow},#{rowCount}
+	</select>
+	
 	<select id="selectMovieImage" resultType="String" resultMap="premovieMap">
 		select movie_image from
 		pre_movie where moive_title=#{movieTitle}
 	</select>
 
-	<select id="PageTotalCount" resultMap="premovieMap">
+	<select id="PageTotalCount" resultType="Integer">
 		select count(*) from pre_movie
 	</select>
 
@@ -43,7 +44,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="stars" property="stars" />
 		<result column="story" property="story" />
 		<result column="ymd" property="ymd" />
-
 	</resultMap>
 
 </mapper>
