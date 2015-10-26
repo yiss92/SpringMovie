@@ -26,7 +26,7 @@ public class NowMovieController {
 	public ModelAndView nowMovie(@RequestParam(defaultValue = "1") int page){
 		
 		NowMoviePage nowMoviePage = service.getNowMoviePage(page);
-		
+		//코멘트가 없으면 영화가 리스트에 안나오네
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("now_movie");
 		mv.addObject("nowMoviePage", nowMoviePage);

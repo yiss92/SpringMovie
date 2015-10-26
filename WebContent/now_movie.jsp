@@ -100,7 +100,7 @@
 										<font color="orange"><b>${now.movie_title}</b></font> (${now.ymd})<br>
 										감독 : ${now.director}<br>
 										배우 : ${now.stars}<br>
-<%-- 										평점 : ${now.score} --%>
+										평점 : ${now.score}
 									</section>
 								</div>
 							</li>

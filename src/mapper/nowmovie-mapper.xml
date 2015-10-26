@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mapper.NowMovieMapper">
 	
 	<select id="selectMovieList" parameterType="Map" resultType="NowMovie">
-		select * from now_movie order by ymd limit #{startRow},#{rowCount}
+		select m.*,avg(c.score) score 
+		from now_movie m, movie_comment c 
+	 	where  m.MOVIE_TITLE=c.MOVIE_TITLE 
+	 	group by movie_title
+		order by ymd limit #{startRow},#{rowCount}
 	</select>
 	
 	<select id="selectMovie" parameterType="String" resultType="NowMovie">
