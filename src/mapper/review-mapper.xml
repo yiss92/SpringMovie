@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from review
 	</select>
 	
-	<select id="selectReviewlist" parameterType="Map" resultType="Review">
+	<select id="selectReviewList" parameterType="Map" resultType="Review">
 		select * from review order by review_num desc
 		limit #{startRow},#{rowCount}
 	</select>
