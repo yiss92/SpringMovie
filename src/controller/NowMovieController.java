@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.NowMovieService;
 import vo.Comment;
 import vo.NowMovie;
+import vo.NowMoviePage;
 
 @Controller
 public class NowMovieController {
@@ -21,12 +23,13 @@ public class NowMovieController {
 	///////////////////////////////
 	
 	@RequestMapping("/nowMovie.do")
-	public ModelAndView nowMovie(){
-		List<NowMovie> nowMovieList= service.selectNowMovieList();
+	public ModelAndView nowMovie(@RequestParam(defaultValue = "1") int page){
+		
+		NowMoviePage nowMoviePage = service.getNowMoviePage(page);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("now_movie");
-		mv.addObject("nowMovieList", nowMovieList);
+		mv.addObject("nowMoviePage", nowMoviePage);
 		
 		return mv;
 	}

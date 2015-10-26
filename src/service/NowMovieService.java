@@ -9,6 +9,7 @@ import repository.CommentDao;
 import repository.NowMovieDao;
 import vo.Comment;
 import vo.NowMovie;
+import vo.NowMoviePage;
 
 @Component
 public class NowMovieService {
@@ -27,10 +28,39 @@ public class NowMovieService {
 	}
 
 	///////////////////////////////////
+	public NowMoviePage getNowMoviePage(int requestPage){
+		final int COUNT_PER_PAGE=6;
+		
+		int totalMovie = dao.selectCount();
+		if(totalMovie ==0){
+			return new NowMoviePage();
+		}
+		
+		int totalPage = totalMovie / COUNT_PER_PAGE + 1;
+        if ( totalMovie % COUNT_PER_PAGE == 0) {
+             totalPage = totalMovie / COUNT_PER_PAGE;
+       }
+        //
+        
+        int startRow = (requestPage-1)*COUNT_PER_PAGE;
+        List<NowMovie> nowMovieList =dao.selectList(startRow, COUNT_PER_PAGE);
+        //
+        int startPage;
+        if ( requestPage % 5 != 0) {
+             startPage = ( requestPage / 5) * 5 + 1;
+       } else {
+             startPage = ( requestPage - 4);
+       }
 
-	public List<NowMovie> selectNowMovieList() {
-		return dao.selectList();
+        int endPage = startPage + 4;
+        if ( endPage > totalPage) {
+             endPage = totalPage;
+       }
+
+        return new NowMoviePage(nowMovieList, startPage, endPage, totalPage);
 	}
+	
+	
 
 	public NowMovie selectMovie(String movie_title){
 		return dao.selectMovie(movie_title);

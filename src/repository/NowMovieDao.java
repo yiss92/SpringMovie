@@ -1,6 +1,8 @@
 package repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,11 @@ public class NowMovieDao {
 	
 	/////////////////////////////////////////
 	
-	public List<NowMovie> selectList(){
-		return session.getMapper(NowMovieMapper.class).selectMovieList();
+	public List<NowMovie> selectList(int startRow,int rowCount){
+		Map<String, Integer> map=new HashMap<>();
+		map.put("startRow", startRow);
+		map.put("rowCount", rowCount);
+		return session.getMapper(NowMovieMapper.class).selectMovieList(map);
 	}
 	
 	public NowMovie selectMovie(String movie_title){
@@ -33,7 +38,9 @@ public class NowMovieDao {
 		return session.getMapper(NowMovieMapper.class).selectMovieImage(movie_title);
 	}
 	
-	
+	public int selectCount(){
+		return session.getMapper(NowMovieMapper.class).selectCount();
+	}
 	
 	
 }

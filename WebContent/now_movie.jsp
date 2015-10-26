@@ -88,7 +88,7 @@
 					<div class="clear"></div>
 					<ul class="thumbnails thumbnails-1 list-services">
 						<c:forEach var="now"
-							items="${nowMovieList}">
+							items="${nowMoviePage.nowMovieList}">
 							<li class="span4">
 								<div class="thumbnail thumbnail-1">
 									<section>

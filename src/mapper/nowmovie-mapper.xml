@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mapper.NowMovieMapper">
 	
-	<select id="selectMovieList" resultType="NowMovie">
-		select * from now_movie order by ymd
+	<select id="selectMovieList" parameterType="Map" resultType="NowMovie">
+		select * from now_movie order by ymd limit #{startRow},#{rowCount}
 	</select>
 	
 	<select id="selectMovie" parameterType="String" resultType="NowMovie">
@@ -17,6 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select movie_image from now_movie where moive_title=#{movie_title}
 	</select>
 
+	<select id="selectCount" resultType="Integer">
+		select count(*) from now_movie
+	</select>
 	
 
 </mapper>
