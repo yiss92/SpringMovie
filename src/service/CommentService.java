@@ -21,14 +21,12 @@ public class CommentService {
 		this.dao = dao;
 	}
 
-	
-	
 	private HttpSession session;
 	//////////////////////////////////////////
 
-	public boolean writeComment(Comment comment,HttpServletRequest request) {
-		session=request.getSession();
-		String id= (String)session.getAttribute("id");
+	public boolean writeComment(Comment comment, HttpServletRequest request) {
+		session = request.getSession();
+		String id = (String) session.getAttribute("id");
 		comment.setId(id);
 		if (dao.insert(comment) > 0) {
 			return true;
@@ -41,31 +39,32 @@ public class CommentService {
 		return dao.select(comment_num);
 	}
 
-	public boolean modifyComment(Comment comment,HttpServletRequest request) {
+	public boolean modifyComment(Comment comment, HttpServletRequest request) {
 		Comment original = dao.select(comment.comment_num);
-		
+
 		session = request.getSession();
-		String id= (String)session.getAttribute("id");
-		
-		
-		if(original.getId().equals(id)){
+		String id = (String) session.getAttribute("id");
+
+		if (original.getId().equals(id)) {
 			dao.update(comment);
+			return true;
+		} else {
+			return false;
 		}
-		
-		return true;
 	}
 
-	public boolean deleteComment(Comment comment,HttpServletRequest request) {
-	Comment original = dao.select(comment.comment_num);
-		
+	public boolean deleteComment(Comment comment, HttpServletRequest request) {
+		Comment original = dao.select(comment.comment_num);
+
 		session = request.getSession();
-		String id= (String)session.getAttribute("id");
-		
-		if(original.getId().equals(id)){
+		String id = (String) session.getAttribute("id");
+
+		if (original.getId().equals(id)) {
 			dao.delete(comment.comment_num);
+			return true;
+		} else {
+			return false;
 		}
-		
-		return true;
 	}
 
 	public CommentPage getCommentPage(int requestPage) {
