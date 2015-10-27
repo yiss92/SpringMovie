@@ -44,8 +44,8 @@
 			});
 		</script>
 		<style type="text/css">
-			#loginForm{ width:100%; height:50px; overflow:hidden; }
-			#main{ position:fixed; width:100%; height:calc(100% - 195px); }
+			#loginForm{ width:100%; height:45px; overflow:hidden; }
+			#main{ position:fixed; width:100%; height:calc(100% - 190px); }
 		</style>
 	</head>
 	<body>
@@ -57,16 +57,16 @@
 						<div class="navbar navbar_">
 							<div class="container">
 								<h1 class="brand brand_">
-									<a href="/SpringMovie/bestFive.jsp"  target="main"><img src="img/MainTopic.JPG"> </a>
+									<a href="/SpringMovie/main.do"  target="main"><img src="img/MainTopic.JPG"> </a>
 								</h1>
 								<a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span></a>
 								<div class="nav-collapse nav-collapse_  collapse">
 									<ul class="nav sf-menu">
-										<li><a href="Mmovie?type=nowMovie"  target="main">상영작</a></li>
-										<li class="sub-menu"><a href="Mmovie?type=soonMovie"  target="main">개봉예정</a></li>
-										<li><a href="index-2.html"  target="main">평점</a></li>
-										<li><a href="index-3.html"  target="main">리뷰</a></li>
-										<li><a href="board?type=list"  target="main">게시판</a></li>
+										<li><a href="Mmovie?type=nowMovie"  target="main"><b>상영작</b></a></li>
+										<li class="sub-menu"><a href="Mmovie?type=soonMovie"  target="main"><b>개봉예정</b></a></li>
+										<li><a href="index-2.html"  target="main"><b>평점</b></a></li>
+										<li><a href="index-3.html"  target="main"><b>리뷰</b></a></li>
+										<li><a href="board?type=list"  target="main"><b>게시판</b></a></li>
 									</ul>
 								</div>
 							</div>
@@ -78,9 +78,9 @@
 		</header>
 	</div>
 	<div id='loginForm'>
-		<iframe src="/SpringMovie/joinForm.jsp" width=100%; height=100%; frameborder="0"  name="login"></iframe>
+		<iframe src="/SpringMovie/joinForm.jsp" width=100%; height=100%; frameborder="0"  name="login" ></iframe>
 	</div>	
-	<div id='main'>
+	<div id='main' align="right">
 		<iframe src="/SpringMovie/main.do" width=100%; height=100%; frameborder="0"  name="main"></iframe>
 	</div>
 
