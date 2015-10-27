@@ -109,54 +109,7 @@ input.tooltip {
 </head>
 
 <body>
-	<div class="spinner"></div>
-	<!--============================== header =================================-->
-	<header>
-		<form action="movie" class="LogInForm" method="post">
-			<table>
-				<tr>
-					<td>ID</td>
-					<td><input type="text" name="member_id" size="10"></td>
-					<td>PW</td>
-					<td><input type="password" name="member_pw" size="10"></td>
-					<td><input type="submit" value="로그인"> <input
-						type="hidden" name="type" value="login"></td>
-					<td><button id="joinBtn">회원가입</button></td>
-					<!--  			<td><input type ="submit" value ="회원가입"> -->
-					<!--  			<input type="hidden" name="type" value="login" ></td> -->
-				</tr>
-			</table>
-		</form>
-		<!-- <a href ="movie?type=joinForm"><button>회원가입</button></a > -->
-		<div class="container clearfix">
-			<div class="row">
-				<div class="span12">
-					<div class="navbar navbar_">
-						<div class="container">
-							<h1 class="brand brand_">
-								<a href="movie?type=loginForm"><img alt=""
-									src="img/MainTopic.JPG"> </a>
-							</h1>
-							<a class="btn btn-navbar btn-navbar_" data-toggle="collapse"
-								data-target=".nav-collapse_">Menu <span class="icon-bar"></span>
-							</a>
-							<div class="nav-collapse nav-collapse_  collapse">
-								<ul class="nav sf-menu">
-									<!--                 <li class="active"><a href="index.html">상영작</a></li> -->
-									<li><a href="nowMovie.do">상영작</a></li>
-									<li class="sub-menu"><a href="Mmovie?type=soonMovie">개봉예정</a>
-									</li>
-									<li><a href="comment.do">평점</a></li>
-									<li><a href="index-3.html">리뷰</a></li>
-									<li><a href="board?type=list">게시판</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+
 	<div class="bg-content">
 		<div class="container">
 			<div class="row">
@@ -166,7 +119,7 @@ input.tooltip {
 					<div class="flexslider" style="z-index: 1;">
 						<ul class="slides" style="z-index: 1;">
 							<c:forEach var="main" items="${movieImage}">
-								<li><form action="링크" method="post">
+								<li><form action="留곹겕" method="post">
 										<input type="image" src="${main.movie_image}"
 											style="width: 450px; Z-index: 1;" >
 									</form></li>

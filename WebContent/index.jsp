@@ -45,7 +45,7 @@
 		</script>
 		<style type="text/css">
 			#loginForm{ width:100%; height:50px; overflow:hidden; }
-			#main{ display: inline-block; vertical-align: top; width:100%; height:100%; }
+			#main{ position:fixed; width:100%; height:calc(100% - 195px); }
 		</style>
 	</head>
 	<body>
@@ -81,7 +81,7 @@
 		<iframe src="/SpringMovie/joinForm.jsp" width=100%; height=100%; frameborder="0"  name="login"></iframe>
 	</div>	
 	<div id='main'>
-		<iframe src="/SpringMovie/bestFive.jsp" width=100%; height=100%; frameborder="0"  name="main"></iframe>
+		<iframe src="/SpringMovie/main.do" width=100%; height=100%; frameborder="0"  name="main"></iframe>
 	</div>
 
 		
