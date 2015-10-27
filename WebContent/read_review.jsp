@@ -90,47 +90,37 @@
 						<br>
 						<table border="1">
 							<tr>
-								<th width="200">영화</th>
-								<th width="700">제목</th>
-								<th width="100">아이디</th>
-								<th width="100">날짜</th>
-								<th width="100">별점</th>
-								<th width="100">추천수</th>
-								<th width="100">조회</th>
+								<th width="300">제목</th>
+								<th>아이디</th>
+								<th>작성일</th>
+								<th>추천수</th>
+								<th>조회수</th>
 							</tr>
-							<c:choose>
-								<c:when test="${empty reviewPage.reviewList}">
-								<tr>
-									<td colspan="7" align="center">리뷰가 없습니다.</td>
-								</tr>
-								</c:when>
-			
-								<c:otherwise>
-								<c:forEach var="r" items="${reviewPage.reviewList}">
-										<tr align="center">
-											<td>${r.movie_title}</td>
-											<td><a href="readReview.do?review_num=${r.review_num}">${r.review_title}
-											</a></td>
-											<td>${r.id}</td>
-											<td><fmt:formatDate value="${r.date}"
-													pattern="yy/MM/dd" /></td>
-											<td>${r.score}</td>
-											<td>${r.recommend_count}</td>
-											<td>${r.read_count}</td>
-										</tr>
-									</c:forEach>
-								<tr>
-										<td colspan="7" align="center"><c:forEach begin="${reviewPage.startPage}"
- 												end="${reviewPage.endPage}" var="p">
- 												<a href="review.do?page=${p}">[${p}]</a> 
- 											</c:forEach></td> 
-									</tr>
-								</c:otherwise>
-
-							</c:choose>
+							<tr align="center">
+								<td>${review.review_title}</td>
+								<td>${review.id}</td>
+								<td><fmt:formatDate value="${review.date}"
+										pattern="yy/MM/dd" /></td>
+								<td>${review.recommend_count}</td>
+								<td>${review.read_count}</td>
+							</tr>
+							<tr>
+								<td colspan="5">영화 : ${review.movie_title}</td>
+							</tr>
+							
+							<tr  height="100">
+								<td colspan="5" >${review.content}</td>
+							</tr>
+							<tr>
+								<td colspan="5" align="right">평점 : ${review.score}</td>
+							</tr>
 						</table>
 						<br>
-						<a href="writeReviewForm.do"><button>글쓰기</button></a> 
+						<a href="recommendReview.do?review_num=${review.review_num}"><button>추천</button></a>
+						<br>
+						<a href="modifyReviewForm.do?review_num=${review.review_num}">[수정]</a>
+						<a href="deleteReview.do?review_num=${review.review_num}">[삭제]</a>
+						<input type="hidden" name="review_num" value="${review.review_num}"> 
 					</article>
 				</div>
 			</div>

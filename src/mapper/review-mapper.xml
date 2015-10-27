@@ -6,14 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mapper.ReviewMapper">
 	<insert id="insertReview" parameterType="Review">
 		insert into review(movie_title,review_title,id,date,score,recommend_count,
-		read_count,context)
+		read_count,content)
 		values(#{movie_title},#{review_title},#{id},#{date},#{score},#{recommend_count},
-		#{read_count},#{context})
+		#{read_count},#{content})
 	</insert>
 	
 	<update id="updateReview" parameterType="Review">
-		update set review movie_title=#{movie_title},review_title=#{review_title},
-		score=#{score},context=#{context} where review_num=#{review_num} 
+		update review set  movie_title=#{movie_title},review_title=#{review_title},
+		score=#{score},content=#{content} 
+		where review_num=#{review_num} 
 	</update>
 	
 	<delete id="deleteReview" parameterType="Integer">

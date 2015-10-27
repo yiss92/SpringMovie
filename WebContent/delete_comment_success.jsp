@@ -68,7 +68,7 @@
 										<!--                     <li><a href="#">Conseq</a></li> --> <!--                   </ul> -->
 									</li>
 									<li class="sub-menu active"><a href="comment.do">∆Ú¡°</a></li>
-									<li><a href="index-3.html">∏Æ∫‰</a></li>
+									<li><a href="reivew.do">∏Æ∫‰</a></li>
 									<li><a href="index-4.html">∞‘Ω√∆«</a></li>
 								</ul>
 							</div>

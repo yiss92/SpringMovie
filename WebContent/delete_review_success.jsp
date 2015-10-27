@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,14 +61,14 @@
 							</a>
 							<div class="nav-collapse nav-collapse_  collapse">
 								<ul class="nav sf-menu">
-									<li><a href="nowMove.do">상영작</a></li>
+									<li><a href="nowMovie.do">상영작</a></li>
 									<li><a href="index-1.html">개봉예정</a> <!--                       <ul> -->
 										<!--                     <li><a href="#">Dolore </a></li> -->
 										<!--                     <li><a href="#">Consecte</a></li> -->
 										<!--                     <li><a href="#">Conseq</a></li> --> <!--                   </ul> -->
 									</li>
 									<li><a href="comment.do">평점</a></li>
-									<li class="sub-menu active"><a href="review.do">리뷰</a></li>
+									<li  class="sub-menu active"><a href="reivew.do">리뷰</a></li>
 									<li><a href="index-4.html">게시판</a></li>
 								</ul>
 							</div>
@@ -87,50 +85,11 @@
 			<div class="container">
 				<div class="row">
 					<article class="span8">
-						<br>
-						<table border="1">
-							<tr>
-								<th width="200">영화</th>
-								<th width="700">제목</th>
-								<th width="100">아이디</th>
-								<th width="100">날짜</th>
-								<th width="100">별점</th>
-								<th width="100">추천수</th>
-								<th width="100">조회</th>
-							</tr>
-							<c:choose>
-								<c:when test="${empty reviewPage.reviewList}">
-								<tr>
-									<td colspan="7" align="center">리뷰가 없습니다.</td>
-								</tr>
-								</c:when>
-			
-								<c:otherwise>
-								<c:forEach var="r" items="${reviewPage.reviewList}">
-										<tr align="center">
-											<td>${r.movie_title}</td>
-											<td><a href="readReview.do?review_num=${r.review_num}">${r.review_title}
-											</a></td>
-											<td>${r.id}</td>
-											<td><fmt:formatDate value="${r.date}"
-													pattern="yy/MM/dd" /></td>
-											<td>${r.score}</td>
-											<td>${r.recommend_count}</td>
-											<td>${r.read_count}</td>
-										</tr>
-									</c:forEach>
-								<tr>
-										<td colspan="7" align="center"><c:forEach begin="${reviewPage.startPage}"
- 												end="${reviewPage.endPage}" var="p">
- 												<a href="review.do?page=${p}">[${p}]</a> 
- 											</c:forEach></td> 
-									</tr>
-								</c:otherwise>
 
-							</c:choose>
-						</table>
-						<br>
-						<a href="writeReviewForm.do"><button>글쓰기</button></a> 
+						<div class="inner-1">
+						<br><br><br>
+							<h3>삭제가 완료되었습니다.</h3> <a href="review.do">[목록으로]</a>
+						</div>
 					</article>
 				</div>
 			</div>

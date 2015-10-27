@@ -29,7 +29,6 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("review_main");
 		mv.addObject("reviewPage", reviewPage);
-
 		return mv;
 	}
 
@@ -58,8 +57,9 @@ public class ReviewController {
 		return mv;
 	}
 
-	@RequestMapping("/modifyReivew.do")
+	@RequestMapping("/modifyReview.do")
 	public String modify(Review review, HttpServletRequest request) {
+			
 		if (service.modifyReview(review, request)) {
 			return "modify_review_success";
 		} else {
@@ -88,14 +88,13 @@ public class ReviewController {
 	}
 	
 	
-	// 과연 쓸 수 있을 것인가!!!!!
-	@RequestMapping("/recommandReview.do")
+	@RequestMapping("/recommendReview.do")
 	public String recommand(int review_num) {
 		service.recommendCount(review_num);
 		return "read_review";
 	}
 
-	
+	//추천 후 리드화면에 표만 남고 값들이 안떠
 	
 	
 }

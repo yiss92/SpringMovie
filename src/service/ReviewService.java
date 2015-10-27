@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import repository.ReviewDao;
-import vo.Comment;
-import vo.CommentPage;
 import vo.Review;
 import vo.ReviewPage;
 
@@ -32,6 +31,7 @@ public class ReviewService {
 		session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		review.setId(id);
+		review.setDate(new Date());
 
 		if (dao.insertReview(review) > 0) {
 			return true;
@@ -61,10 +61,13 @@ public class ReviewService {
 	}
 
 	public boolean modifyReview(Review review, HttpServletRequest request) {
+		
 		Review original = dao.selectReview(review.getReview_num());
 		session = request.getSession();
 		String id = (String) session.getAttribute("id");
-
+		
+		
+		
 		if (original.getId().equals(id)) {
 			dao.updateReview(review);
 			return true;
@@ -79,6 +82,8 @@ public class ReviewService {
 		session = request.getSession();
 		String id = (String) session.getAttribute("id");
 
+
+		
 		if (original.getId().equals(id)) {
 			dao.deleteReview(review.getReview_num());
 			return true;
