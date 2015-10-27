@@ -62,7 +62,7 @@
 								<a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span></a>
 								<div class="nav-collapse nav-collapse_  collapse">
 									<ul class="nav sf-menu">
-										<li><a href="Mmovie?type=nowMovie"  target="main"><b>상영작</b></a></li>
+										<li><a href="/SpringMovie/nowMovie.do"  target="main"><b>상영작</b></a></li>
 										<li class="sub-menu"><a href="Mmovie?type=soonMovie"  target="main"><b>개봉예정</b></a></li>
 										<li><a href="index-2.html"  target="main"><b>평점</b></a></li>
 										<li><a href="index-3.html"  target="main"><b>리뷰</b></a></li>
