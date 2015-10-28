@@ -56,7 +56,8 @@
 
 						<div class="inner-1">
 						<br><br><br>
-							<h3>수정이 실패되었습니다.</h3> <a href="comment.do">[목록으로]</a>
+							<h3>수정이 실패되었습니다.</h3> <a href="comment.do">[목록으로]</a><br>
+							직접 작성한 한줄평만 삭제 가능합니다. 아이디를 확인해주세요.
 						</div>
 					</article>
 				</div>

@@ -38,11 +38,12 @@ public class NowMovieController {
 	public ModelAndView nowMovieRead(String movie_title){
 		NowMovie nowMovie= service.selectMovie(movie_title);
 		List<Comment> nowMovieComment = service.nowMovieComent(movie_title);
-		
+		String commentAvg = service.nowMovieAvg(movie_title);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("now_movie_read");
 		mv.addObject("nowMovie", nowMovie);
 		mv.addObject("nowMovieComment", nowMovieComment);
+		mv.addObject("commentAvg", commentAvg);
 		return mv;
 	}
 	

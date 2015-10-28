@@ -69,6 +69,10 @@ public class NowMovieService {
 	public List<Comment> nowMovieComent(String movie_title){
 		return cDao.nowMovieComent(movie_title);
 	}
+
+	public String nowMovieAvg(String movie_title){
+		return cDao.nowMovieAvg(movie_title);
+	}
 	
 	public List<NowMovie> selectMovieImage() {
 		return cDao.selectBest5(); //이게 리스트로 된 영화이름5개

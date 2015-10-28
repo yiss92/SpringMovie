@@ -59,13 +59,16 @@
 								<li>
 									<h3>${nowMovie.movie_title}
 										(${nowMovie.ymd})</h3> <!--             <div class="name-author">by Admin</div> -->
-									<div class="clear"></div> <img alt=""
+									<div class="clear"></div> 
+									
+									<img alt=""
 									src="${nowMovie.movie_image}" width="250px">
 									<h5>감독 : ${nowMovie.director}</h5>
 									<h5>주연배우 : ${nowMovie.stars}</h5>
-									<h5>장르 : ${nowMovie.genre_1} ${nowMovie.genre_2}</h5>
+									<h5>장르 : ${nowMovie.genre_1},${nowMovie.genre_2} </h5>
 									<h5>${nowMovie.story}</h5> 
 									
+									<h5>평점 :${commentAvg}</h5>
 									<table border="1">
 										<tr>
 											<th width="100" height="30">평점</th>
@@ -107,3 +110,6 @@
 
 </body>
 </html>
+									
+									
+									

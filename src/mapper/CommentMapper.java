@@ -19,4 +19,6 @@ public interface CommentMapper {
 	
 	public List<Comment> nowMovieComent(String movie_title);
 	
+	public String nowMovieAvg(String movie_title);
+	
 }

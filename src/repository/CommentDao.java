@@ -64,4 +64,8 @@ public class CommentDao {
 		return session.getMapper(CommentMapper.class).nowMovieComent(movie_title);
 	}
 	
+	public String nowMovieAvg(String movie_title){
+		return session.getMapper(CommentMapper.class).nowMovieAvg(movie_title);
+	}
+	
 }

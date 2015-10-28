@@ -45,4 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select id,comment,score from movie_comment where movie_title=#{movie_title}
 	</select>
 	
+	<select id="nowMovieAvg" resultType="String">
+		select round(avg(score),1) from movie_comment where movie_title=#{movie_title}
+	</select>
+	
 </mapper>
