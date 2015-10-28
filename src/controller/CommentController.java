@@ -30,18 +30,16 @@ public class CommentController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("comment_main");
 		mv.addObject("commentPage", commentPage);
-		
+
 		return mv;
 	}
 
 	@RequestMapping(value = "/writeComment.do", method = RequestMethod.POST)
-	public String write(Comment comment,HttpServletRequest request) {
+	public String write(Comment comment, HttpServletRequest request) {
 
-		if (service.writeComment(comment,request)) {
-			return "write_comment_success";
-		} else {
-			return "write_comment_fail";
-		}
+		service.writeComment(comment, request);
+		return "write_comment_success";
+
 	}
 
 	@RequestMapping("/modifyCommentForm.do")
@@ -56,32 +54,28 @@ public class CommentController {
 	}
 
 	@RequestMapping("/modifyComment.do")
-	public String modify(Comment comment,HttpServletRequest request) {
-		if (service.modifyComment(comment, request)) {
-			return "modify_comment_success";
-		} else {
-			return "modify_comment_fail";
-		}
+	public String modify(Comment comment, HttpServletRequest request) {
+		service.modifyComment(comment, request);
+		return "modify_comment_success";
+
 	}
 
-//	@RequestMapping("/deleteCommentForm.do")
-//	public ModelAndView deleteForm(int comment_num) {
-//		Comment original = service.selectComment(comment_num);
-//
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("original", original);
-//		mv.setViewName("delete_comment_form");
-//
-//		return mv;
-//	}
+	// @RequestMapping("/deleteCommentForm.do")
+	// public ModelAndView deleteForm(int comment_num) {
+	// Comment original = service.selectComment(comment_num);
+	//
+	// ModelAndView mv = new ModelAndView();
+	// mv.addObject("original", original);
+	// mv.setViewName("delete_comment_form");
+	//
+	// return mv;
+	// }
 
 	@RequestMapping("/deleteComment.do")
-	public String delete(Comment comment,HttpServletRequest request) {
-		if (service.deleteComment(comment,request)) {
-			return "delete_comment_success";
-		} else {
-			return "delete_comment_fail";
-		}
+	public String delete(Comment comment, HttpServletRequest request) {
+		service.deleteComment(comment, request);
+		return "delete_comment_success";
+
 	}
 
 }

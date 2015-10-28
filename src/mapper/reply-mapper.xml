@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.ReplyMapper">
+
+<insert id="insertReply" parameterType="Reply">
+	insert into Reply(review_num,id,reply) 
+	values(#{review_num},#{id},#{reply})
+</insert>
+
+<select id="selectReply" parameterType="Integer" resultType="Reply">
+	select id,reply from reply where review_num=#{review_num}
+</select>
+
+
+</mapper>

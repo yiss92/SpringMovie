@@ -1,14 +1,19 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import service.ReplyService;
 import service.ReviewService;
+import vo.Reply;
 import vo.Review;
 import vo.ReviewPage;
 
@@ -16,9 +21,16 @@ import vo.ReviewPage;
 public class ReviewController {
 	private ReviewService service;
 
+	private ReplyService rSer;
+	
 	@Autowired
 	public void setService(ReviewService service) {
 		this.service = service;
+	}
+	
+	@Autowired
+	public void setrSer(ReplyService rSer) {
+		this.rSer = rSer;
 	}
 
 	/////////////////////////////////////////////////
@@ -39,11 +51,9 @@ public class ReviewController {
 
 	@RequestMapping("/writeReview.do")
 	public String write(Review review, HttpServletRequest request) {
-		if (service.writeReview(review, request)) {
-			return "write_review_success";
-		} else {
-			return "write_review_fail";
-		}
+		service.writeReview(review, request);
+		return "write_review_success";
+
 	}
 
 	@RequestMapping("/modifyReviewForm.do")
@@ -59,43 +69,51 @@ public class ReviewController {
 
 	@RequestMapping("/modifyReview.do")
 	public String modify(Review review, HttpServletRequest request) {
-			
-		if (service.modifyReview(review, request)) {
-			return "modify_review_success";
-		} else {
-			return "modify_review_fail";
-		}
+
+		service.modifyReview(review, request);
+		return "modify_review_success";
+
 	}
 
 	@RequestMapping("/deleteReview.do")
 	public String delete(Review review, HttpServletRequest request) {
-		if (service.deleteReview(review, request)) {
-			return "delete_review_success";
-		} else {
-			return "delete_review_fail";
-		}
+		service.deleteReview(review, request);
+		return "delete_review_success";
+
 	}
 
-	@RequestMapping("/readReview.do")
-	public ModelAndView read(int review_num){
+	@RequestMapping(value="/readReview.do")
+	public ModelAndView read(int review_num,HttpServletRequest request,Reply r) {
 		Review review = service.selectReview(review_num);
+		List<Reply> reply =rSer.selectReply(review_num);
 		
-		ModelAndView mv= new ModelAndView();
+		//이렇게 하려면 if문이 있어야하는데 if의 조건을 뭐라고 하지??
+//		if(){
+//		rSer.writeReply(r, request);
+//		}
+		//여기에 write까지 해도 맞나??
+		//새로운 컨트롤러 만들어서 redirect?
+		
+		
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("review", review);
+		mv.addObject("reply", reply);
 		mv.setViewName("read_review");
 		
 		return mv;
 	}
 	
 	
-//	@RequestMapping("/recommendReview.do")
-//	public String recommand(int review_num) {
-//		service.recommendCount(review_num);
-//		return "read_review";
-//	}
+	
+	
+	
+	
 
-	//추천 후 리드화면에 표만 남고 값들이 안떠
-//	http://localhost:8088/SpringMovie/recommendReview.do?review_num=5
-// http://localhost:8088/SpringMovie/readReview.do?review_num=5	
-	//이렇게 url이 달라서 빈값이 뜨나봐..
+	// @RequestMapping("/recommendReview.do")
+	// public String recommand(int review_num) {
+	// service.recommendCount(review_num);
+	// return "read_review";
+	// }
+
+	// 추천수는 테이블 하나 더 만들어야 되서 포기
 }

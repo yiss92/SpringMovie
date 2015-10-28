@@ -90,6 +90,24 @@
 						<a href="deleteReview.do?review_num=${review.review_num}">[삭제]</a>
 						<input type="hidden" name="review_num" value="${review.review_num}">
 						</c:if> 
+						<br><br>
+						
+						<table border="1">
+							<c:if test="${!empty reply}">
+								<c:forEach var="re" items="${reply}">
+									<tr align="center">
+										<td width="300">${re.reply}</td>
+										<td width="100">${re.id}</td>
+									</tr>
+								</c:forEach>
+							</c:if>
+						</table>
+						<br>
+						<form action="readReview.do">
+						<input type="text" name="reply">
+						<input type="hidden" name="review_num" value="${review.review_num}">
+						<input type="submit" value="댓글작성">
+						</form>
 					</article>
 				</div>
 			</div>
