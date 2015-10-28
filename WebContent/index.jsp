@@ -57,7 +57,7 @@
 						<div class="navbar navbar_">
 							<div class="container">
 								<h1 class="brand brand_">
-									<a href="/SpringMovie/main.do"  target="main"><img src="img/MainTopic.JPG"> </a>
+									<a href="index.jsp"><img src="img/MainTopic.JPG"> </a>
 								</h1>
 								<a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span></a>
 								<div class="nav-collapse nav-collapse_  collapse">

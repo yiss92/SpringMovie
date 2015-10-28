@@ -52,8 +52,12 @@ public class MemberController {
 			return "loggin_false";
 		}
 	}
-	
-	
+	@RequestMapping("/loginOut.do")
+	public String logOut(HttpSession session){
+		session.setAttribute("id", null);
+		session.setAttribute("password", null);	
+		return "joinForm";
+	}
 	
 
 }
