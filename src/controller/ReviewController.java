@@ -95,6 +95,7 @@ public class ReviewController {
 	}
 
 	//추천 후 리드화면에 표만 남고 값들이 안떠
-	
-	
+//	http://localhost:8088/SpringMovie/recommendReview.do?review_num=5
+// http://localhost:8088/SpringMovie/readReview.do?review_num=5	
+	//이렇게 url이 달라서 빈값이 뜨나봐..
 }
