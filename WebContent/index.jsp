@@ -64,8 +64,8 @@
 									<ul class="nav sf-menu">
 										<li><a href="/SpringMovie/nowMovie.do"  target="main"><b>상영작</b></a></li>
 										<li class="sub-menu"><a href="/SpringMovie/preMovie.do"  target="main"><b>개봉예정</b></a></li>
-										<li><a href="index-2.html"  target="main"><b>평점</b></a></li>
-										<li><a href="index-3.html"  target="main"><b>리뷰</b></a></li>
+										<li><a href="/SpringMovie/comment.do"  target="main"><b>평점</b></a></li>
+										<li><a href="/SpringMovie/review.do"  target="main"><b>리뷰</b></a></li>
 										<li><a href="board?type=list"  target="main"><b>게시판</b></a></li>
 									</ul>
 								</div>

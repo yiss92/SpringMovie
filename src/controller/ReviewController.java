@@ -88,11 +88,11 @@ public class ReviewController {
 	}
 	
 	
-	@RequestMapping("/recommendReview.do")
-	public String recommand(int review_num) {
-		service.recommendCount(review_num);
-		return "read_review";
-	}
+//	@RequestMapping("/recommendReview.do")
+//	public String recommand(int review_num) {
+//		service.recommendCount(review_num);
+//		return "read_review";
+//	}
 
 	//추천 후 리드화면에 표만 남고 값들이 안떠
 //	http://localhost:8088/SpringMovie/recommendReview.do?review_num=5
