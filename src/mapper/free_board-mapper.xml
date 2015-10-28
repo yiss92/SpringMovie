@@ -18,11 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="deleteComment" parameterType="Integer">
 		DELETE FROM FREEBOARD
-		WHERE MESSAGE_ID=#{messageId}
+		WHERE ID=#{id}
 	</delete>
 
 	<select id="selectComment" parameterType="Integer" resultMap="freeboardMap">
-		SELECT * FROM FREEBOARD WHERE MESSAGE_ID=#{messageId}
+		SELECT * FROM FREEBOARD WHERE ID=#{id}
 	</select>
 
 	<select id="selectCommentList" parameterType="Map" resultMap="freeboardMap">

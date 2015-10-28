@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import repository.FreeBoardDao;
+import sun.print.resources.serviceui;
 import vo.Comment;
 import vo.FreeBoard;
 import vo.FreeBoardPage;
@@ -25,6 +26,7 @@ public class FreeBoardService {
 	////////////////////////////////////////////////////////////////////////////
 	public boolean writeComment(FreeBoard comment, HttpSession session) {
 		comment.setPassword((String) session.getAttribute("password"));
+		comment.setId((String) session.getAttribute("id"));
 		if (dao.insert(comment) > 0)
 			return true;
 		else
@@ -50,6 +52,10 @@ public class FreeBoardService {
 		} else {
 			return false;
 		}
+	}
+	
+	public FreeBoard readFreeBoard(int id){
+		return dao.select(id);
 	}
 
 	public FreeBoardPage getFreeBoradPage(int requestPage) {
@@ -83,5 +89,9 @@ public class FreeBoardService {
 
 		return new FreeBoardPage(messageList, startPage, endPage, totalPage);
 
+	}
+	
+	public FreeBoard regardlessOfReadCount(int id){
+		return dao.select(id);
 	}
 }
