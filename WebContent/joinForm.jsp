@@ -19,7 +19,7 @@
 				<td width="99%">
 					<form action="logginForm.do" class="LogInForm" method="post" target="main">
 						ID<input type="text" name="id" size="-5">　
-						PW<input type="password" name="pw" size="-5">
+						PW<input type="password" name="password" size="-5">
 						<input type="submit" value="로그인"><input type="hidden" name="type" value="login">
 					</form>
 				</td>
