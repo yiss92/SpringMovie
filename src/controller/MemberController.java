@@ -36,19 +36,18 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/loginForm.do")
-	public String login(){
+	public String login(HttpSession session){
 		
 		return "loginform";
 	}
 	
 	@RequestMapping(value="logginForm.do", method = RequestMethod.POST)
 	public String memberlogging(String id, String password, HttpSession session){
-		session.setAttribute("id", id);
-		session.setAttribute("password", password);	
-		
 		Member original = service.select(id);
 		if(original.getPassword().equals(password)){
-			return "loggin_success";
+			session.setAttribute("id", id);
+			session.setAttribute("password", password);	
+			return "joinForm";
 		}else{
 			return "loggin_false";
 		}
