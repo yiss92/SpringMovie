@@ -49,10 +49,9 @@
   <![endif]-->
 </head>
 
-<body>
-	<div class="spinner"></div>
+<body  class="bg-content">
 
-	<div class="bg-content">
+	<div>
 		<!--============================== content =================================-->
 		<div id="content">
 			<div class="ic"></div>

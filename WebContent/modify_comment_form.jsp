@@ -49,7 +49,7 @@
   <![endif]-->
 </head>
 
-<body>
+<body  class="bg-content">
 	<div class="spinner"></div>
 
 	<div class="bg-content">

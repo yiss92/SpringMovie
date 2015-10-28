@@ -41,10 +41,10 @@
 
 </head>
 
-<body>
+<body class="bg-content">
 
 
-	<div class="bg-content">
+	<div >
 
 		<!--============================== content =================================-->
 
