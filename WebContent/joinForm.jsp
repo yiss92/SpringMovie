@@ -18,7 +18,7 @@
 		<table style="width:100%;overflow-x:hidden;overflow-y:hidden; text-align: right; top: 0; width: 100%;">
 			<c:if test="${!empty sessionScope.id}">
 				${sessionScope.id} 님 환영합니다.
-				<form action="링크" class="LogInForm" method="post" target="main">
+				<form action="loginOut.do" class="LogInForm" method="post">
 					<input type="submit" value="로그아웃">
 				</form>
 			</c:if>
