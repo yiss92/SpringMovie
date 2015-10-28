@@ -47,7 +47,6 @@ public class NowMovieController {
 	}
 	
 	
-	
 	@RequestMapping("/main.do")
 	public ModelAndView main(){
 		List<NowMovie> movieImage = service.selectMovieImage();
