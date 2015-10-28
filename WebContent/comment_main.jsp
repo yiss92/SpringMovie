@@ -99,6 +99,7 @@
 											<td width="400">${c.comment}</td>
 											<td>${c.score}</td> 
 										</tr>
+										<c:if test="${sessionScope.id==c.id}">
 										<tr>
 											<td colspan="5" align="right">
 											<a href="modifyCommentForm.do?comment_num=${c.comment_num}">[¼öÁ¤]</a>
@@ -106,6 +107,7 @@
 											<input type="hidden" name="comment_num" value="${c.comment_num}" >
 											</td>
 										</tr>
+										</c:if>
 									</c:forEach>
 
 									<tr>

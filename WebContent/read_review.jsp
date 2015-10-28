@@ -85,9 +85,11 @@
 						<br>
 						<a href="recommendReview.do?review_num=${review.review_num}"><button>추천</button></a>
 						<br>
+						<c:if test="${sessionScope.id==review.id}">
 						<a href="modifyReviewForm.do?review_num=${review.review_num}">[수정]</a>
 						<a href="deleteReview.do?review_num=${review.review_num}">[삭제]</a>
-						<input type="hidden" name="review_num" value="${review.review_num}"> 
+						<input type="hidden" name="review_num" value="${review.review_num}">
+						</c:if> 
 					</article>
 				</div>
 			</div>
