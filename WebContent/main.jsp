@@ -73,39 +73,6 @@ input.tooltip {
 	filter: alpha(opacity = 100);
 }
 </style>
-<script>
-	function tooltip_layer_over(id) {
-		var obj = document.getElementById(id);
-		if (obj !== null) {
-			if (window.pageXOffset == undefined) {
-				var left_set = parseInt(window.event.clientX
-						+ document.body.scrollLeft + 2);
-			} else {
-				var left_set = parseInt(window.event.clientX
-						+ document.body.scrollLeft + 2);
-			}
-			if (window.pageYOffset == undefined) {
-				obj.style.pixelTop = parseInt(window.event.clientY
-						+ document.body.scrollTop + 2);
-			} else {
-				var top_set = parseInt(window.event.clientY
-						+ document.body.scrollTop + 2);
-			}
-			$(obj).offset({
-				top : top_set,
-				left : left_set
-			});
-			obj.style.visibility = 'visible';
-		}
-	}
-	function tooltip_layer_out(id) {
-		var obj = document.getElementById(id);
-		if (obj != null) {
-			obj.style.visibility = 'hidden';
-		}
-	}
-</script>
-
 </head>
 
 <body>
@@ -119,12 +86,13 @@ input.tooltip {
 					<!--============================== slider =================================-->
 					<div class="flexslider" style="z-index: 1;">
 						<ul class="slides" style="z-index: 1;">
-							<!--             <li> <img  src="/Movie${main.movieImage}" alt=""></li> -->
 							<c:forEach var="main" items="${movieImage}">
-								<li><form action="¸µÅ©" method="post">
-										<input type="image" src="${main.movie_image}"
-											style="width: 450px; Z-index: 1;" >
-									</form></li>
+								<li>
+									<form action="nowMovieRead.do" method="post">
+										<input type="hidden" name="movie_title" value="${main.movie_title}">
+										<input type="image" src="${main.movie_image}" style="width: 450px; Z-index: 1;" >
+									</form>
+								</li>
 
 							</c:forEach>
 						</ul>
