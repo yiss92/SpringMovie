@@ -58,38 +58,17 @@
 								<li>
 									<h3>${preMovie.movieTitle}
 										(${preMovie.ymd})</h3> <!--             <div class="name-author">by Admin</div> -->
-									<div class="clear"></div> <img alt=""
-									src="${preMovie.movieImage}" width="250px">
-									<h5>감독 : ${preMovie.director}</h5>
-									<h5>주연배우 : ${preMovie.stars}</h5>
-									<h5>장르 : ${preMovie.genre_1} ${preMovie.genre_2}</h5>
-									<h5>${preMovie.story}</h5> 
-									
-									<table border="1">
+									<table>
 										<tr>
-<!-- 											<th width="100" height="30">평점</th> -->
-<!-- 											<th width="400" height="30">한줄 평</th> -->
-<!-- 											<th width="100" height="30">ID</th> -->
+											<td width="275"><img src="${preMovie.movieImage}" ></td>
+											<td width="500">
+												<h5>감독 : ${preMovie.director}</h5>
+												<h5>주연배우 : ${preMovie.stars}</h5>
+												<h5>장르 : ${preMovie.genre_1} ${preMovie.genre_2}</h5>
+												<h5>${preMovie.story}</h5> 
+											</td>
 										</tr>
-<%-- 										<c:choose> --%>
-<%-- 											<c:when test="${empty nowMovieComment}"> --%>
-<!-- 												<tr> -->
-<!-- 													<td colspan="3" align="center"><br>-<br></td> -->
-<!-- 												</tr> -->
-<%-- 											</c:when> --%>
-<%-- 											<c:otherwise> --%>
-<%-- 												<c:forEach var="n" items="${nowMovieComment}">   --%>
-<!-- 													<tr> -->
-<%-- 														<td align=center>${n.score}</td> --%>
-<%-- 														<td align=center>${n.comment}</td> --%>
-<%-- 														<td align=center>${n.id}</td> --%>
-<!-- 													</tr> -->
-<%--  												</c:forEach>  --%>
- 												
-<%-- 											</c:otherwise> --%>
-<%-- 										</c:choose> --%>
-									</table>             
-
+									</table>
 								</li>
 
 
