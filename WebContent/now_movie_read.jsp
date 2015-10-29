@@ -62,7 +62,7 @@
 									<table>
 										<tr>
 											<td width="275"><img src="${nowMovie.movie_image}" ></td>
-											<td width="450">
+											<td width="500">
 												<h5>감독 : ${nowMovie.director}</h5>
 												<h5>주연배우 : ${nowMovie.stars}</h5>
 												<h5>장르 : ${nowMovie.genre_1},${nowMovie.genre_2} </h5>
