@@ -18,12 +18,15 @@
 		<table style="width:100%;overflow-x:hidden;overflow-y:hidden; text-align: right; top: 0; width: 100%;">
 			<c:if test="${!empty sessionScope.id}">
 				${sessionScope.id} 님 환영합니다.
+				<form action="modifyMemberForm.do" class="LogInForm" method="post" target="main">
+					<input type="submit" value="회원정보">
+				</form>
 				<form action="loginOut.do" class="LogInForm" method="post">
 					<input type="submit" value="로그아웃">
 				</form>
 			</c:if>
 			<c:if test="${empty sessionScope.id}">
-							<tr>
+				<tr>
 					<td width="99%">
 						<form action="logginForm.do" class="LogInForm" method="post">
 							ID<input type="text" name="id" size="-5">　
