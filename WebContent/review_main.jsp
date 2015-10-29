@@ -20,11 +20,16 @@
 	media="screen">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
 	rel='stylesheet' type='text/css'>
+<link href="./bootstrap/css/bootstrap1.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/superfish.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="js/forms.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap1.js"></script>
+ <script type="text/javascript" src="js/jquery.twbsPagination.js"></script>
+ <script type="text/javascript" src="js/respond.js"></script>
 <script>		
    jQuery(window).load(function() {	
     jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});	
@@ -49,14 +54,13 @@
 	
 	<div>
 		<!--============================== content =================================-->
-		<div id="content">
-			<div class="ic"></div>
-			<div class="container">
+		<div class="container">
+			<div class="col-md-10">
 				<div class="row">
 					<article class="span8">
 						<br>
 						
-						<table border="1">
+						<table class="table table-condensed">
 							<tr>
 								<th width="200">영화</th>
 								<th width="700">제목</th>
@@ -88,17 +92,20 @@
 										</tr>
 									</c:forEach>
 								<tr>
-										<td colspan="7" align="center"><c:forEach begin="${reviewPage.startPage}"
+										<td colspan="5" align="center"><c:forEach begin="${reviewPage.startPage}"
  												end="${reviewPage.endPage}" var="p">
  												<a href="review.do?page=${p}">[${p}]</a> 
- 											</c:forEach></td> 
+ 											</c:forEach></td>
+ 										<td colspan="2">
+ 										<a href="writeReviewForm.do"><button>글쓰기</button></a> 
+ 										</td> 
 									</tr>
 								</c:otherwise>
 
 							</c:choose>
 						</table>
-						<br>
-						<a href="writeReviewForm.do"><button>글쓰기</button></a> 
+						
+						
 					</article>
 				</div>
 			</div>
