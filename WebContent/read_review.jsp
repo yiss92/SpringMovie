@@ -14,6 +14,7 @@
 <meta name="author" content="Your name">
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css"
 	media="screen">
+<link href="./bootstrap/css/bootstrap1.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="css/responsive.css" type="text/css"
 	media="screen">
 <link rel="stylesheet" href="css/style.css" type="text/css"
@@ -24,6 +25,10 @@
 <script type="text/javascript" src="js/superfish.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap1.js"></script>
+ <script type="text/javascript" src="js/jquery.twbsPagination.js"></script>
+ <script type="text/javascript" src="js/respond.js"></script>
 <script src="js/forms.js"></script>
 <script>		
    jQuery(window).load(function() {	
@@ -46,49 +51,52 @@
 </head>
 
 <body  class="bg-content">
-	<div class="spinner"></div>
-	<div class="bg-content">
+	<div class="row">
 		<!--============================== content =================================-->
-		<div id="content">
-			<div class="ic"></div>
-			<div class="container">
-				<div class="row">
+		<div class="container">
+			<div class="col-md-10">
+			
 					<article class="span8">
 						<br>
-						<table border="1">
+						<table class="table table-condensed">
+							<thead>
+							<tr  align="center">
+								<th width="10%">제목</th>
+								<th width="60%">${review.review_title}</th>
+							</tr>
+							<tr  align="center">
+								<th width="10%">영화 제목</th>
+								<th width="60%">${review.movie_title}</th>
+							</tr>
+							</thead>
+							<tbody>
 							<tr>
-								<th width="300">제목</th>
-								<th>아이디</th>
-								<th>작성일</th>
-								<th>추천수</th>
-								<th>조회수</th>
-							</tr>
-							<tr align="center">
-								<td>${review.review_title}</td>
-								<td>${review.id}</td>
-								<td><fmt:formatDate value="${review.date}"
-										pattern="yy/MM/dd" /></td>
-								<td>${review.recommend_count}</td>
-								<td>${review.read_count}</td>
-							</tr>
-							<tr>
-								<td colspan="5">영화 : ${review.movie_title}</td>
-							</tr>
-							
-							<tr  height="100">
-								<td colspan="5" >${review.content}</td>
+								<td>작성일</td>
+								<td>
+								<fmt:formatDate value="${review.date}" pattern="yy/MM/dd" />
+								<span style='float:right'>조회 :${review.read_count}</span>
+								</td>
 							</tr>
 							<tr>
-								<td colspan="5" align="right">평점 : ${review.score}</td>
+								<td>글쓴이</td>
+								<td>${review.id}
+								<span style='float:right'>평점 : ${review.score}</span>
+								</td>
 							</tr>
+							<tr>
+								<td colspan="2" >
+								<p>${review.content}</p>
+								</td>
+							</tr>
+							</tbody>
 						</table>
-						<br>
-						<a href="recommendReview.do?review_num=${review.review_num}"><button>추천</button></a>
-						<br>
+
 						<c:if test="${sessionScope.id==review.id}">
+						<span style='float:right'>
 						<a href="modifyReviewForm.do?review_num=${review.review_num}">[수정]</a>
 						<a href="deleteReview.do?review_num=${review.review_num}">[삭제]</a>
 						<input type="hidden" name="review_num" value="${review.review_num}">
+						</span>
 						</c:if> 
 						<br><br>
 						
@@ -113,7 +121,7 @@
 							<input type="submit" value="댓글작성">
 						</form>
 					</article>
-				</div>
+				
 			</div>
 		</div>
 	</div>

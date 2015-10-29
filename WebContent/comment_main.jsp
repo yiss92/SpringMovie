@@ -20,11 +20,16 @@
 	media="screen">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
 	rel='stylesheet' type='text/css'>
+<link href="./bootstrap/css/bootstrap1.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/superfish.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="js/forms.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap1.js"></script>
+ <script type="text/javascript" src="js/jquery.twbsPagination.js"></script>
+ <script type="text/javascript" src="js/respond.js"></script>
 <script>
 	jQuery(window).load(function() {
 		jQuery('.spinner').animate({
@@ -53,9 +58,8 @@
 
 	<div>
 		<!--============================== content =================================-->
-		<div id="content">
-			<div class="ic"></div>
-			<div class="container">
+		<div class="container">
+			<div class="col-md-10">
 				<div class="row">
 					<article class="span8">
 						<br>
@@ -63,16 +67,15 @@
 							영화제목 <input type="text" name="movie_title" size="10"><br>
 							한줄평 <input type="text" name="comment"  size="100"><br>
 							평점 <input type="text" name="score" ><br>
-							<br>
 							<input type="submit" value="작성">
 						
 						</form>
 
 
 
-						<hr>
-
-						<table border="1">
+<!-- 						<hr> -->
+<br><br><br><br>
+						<table class="table table-condensed">
 							<c:choose>
 								
 								<c:when test="${empty commentPage.commentList}">
@@ -82,17 +85,17 @@
 								</c:when>
 								<c:otherwise>
 									<tr>
-											<th>글 번호</th>
-											<th>영화제목</th>
-											<th>아이디</th>
-											<th>한줄 평</th>
-											<th>평점</th>
+											<th width="70">글 번호</th>
+											<th width="100">영화제목</th>
+											<th width="50">아이디</th>
+											<th width="400">한줄 평</th>
+											<th width="50">평점</th>
 									</tr>
 									
 									<c:forEach var="c" items="${commentPage.commentList}">
 										
 										<tr>
-											<td>${c.getComment_num()}</td> 
+											<td align="center">${c.getComment_num()}</td> 
 											<td>${c.movie_title} </td> 
 											<td>${c.id} </td> 
 											<td width="400">${c.comment}</td>
@@ -100,7 +103,8 @@
 										</tr>
 										<c:if test="${sessionScope.id==c.id}">
 										<tr>
-											<td colspan="5" align="right">
+											<td colspan="4"></td>
+											<td>
 											<a href="modifyCommentForm.do?comment_num=${c.comment_num}">[수정]</a>
 											<a href="deleteComment.do?comment_num=${c.comment_num}">[삭제]</a>
 											<input type="hidden" name="comment_num" value="${c.comment_num}" >
@@ -110,7 +114,8 @@
 									</c:forEach>
 
 									<tr>
-										<td colspan="5"><c:forEach begin="${commentPage.startPage}"
+										<td colspan="3"></td>
+										<td colspan="2"><c:forEach begin="${commentPage.startPage}"
  												end="${commentPage.endPage}" var="p">  
   												<a href="comment.do?page=${p}"> [${p}]</a> 
   											</c:forEach></td>  
