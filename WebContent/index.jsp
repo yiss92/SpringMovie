@@ -66,7 +66,7 @@
 										<li><a href="/SpringMovie/preMovie.do"  target="main"><b>개봉예정</b></a></li>
 										<li><a href="/SpringMovie/comment.do"  target="main"><b>평점</b></a></li>
 										<li><a href="/SpringMovie/review.do"  target="main"><b>리뷰</b></a></li>
-										<li><a href="board?type=list"  target="main"><b>게시판</b></a></li>
+										<li><a href="/SpringMovie/freeboard.do"  target="main"><b>게시판</b></a></li>
 									</ul>
 								</div>
 							</div>
