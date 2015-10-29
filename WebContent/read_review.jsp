@@ -94,6 +94,10 @@
 						
 						<table border="1">
 							<c:if test="${!empty reply}">
+								<tr>
+									<th>´ñ±Û</th>
+									<th>¾ÆÀÌµð</th>
+								</tr>
 								<c:forEach var="re" items="${reply}">
 									<tr align="center">
 										<td width="300">${re.reply}</td>
@@ -103,10 +107,10 @@
 							</c:if>
 						</table>
 						<br>
-						<form action="readReview.do">
-						<input type="text" name="reply">
-						<input type="hidden" name="review_num" value="${review.review_num}">
-						<input type="submit" value="´ñ±ÛÀÛ¼º">
+						<form action="readReview.do" method="post">
+							<input type="text" name="reply">
+							<input type="hidden" name="review_num" value="${review.review_num}">
+							<input type="submit" value="´ñ±ÛÀÛ¼º">
 						</form>
 					</article>
 				</div>

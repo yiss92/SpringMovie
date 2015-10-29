@@ -22,12 +22,12 @@ public class ReviewController {
 	private ReviewService service;
 
 	private ReplyService rSer;
-	
+
 	@Autowired
 	public void setService(ReviewService service) {
 		this.service = service;
 	}
-	
+
 	@Autowired
 	public void setrSer(ReplyService rSer) {
 		this.rSer = rSer;
@@ -82,38 +82,27 @@ public class ReviewController {
 
 	}
 
-	@RequestMapping(value="/readReview.do")
-	public ModelAndView read(int review_num,HttpServletRequest request,Reply r) {
+	@RequestMapping(value = "/readReview.do")
+	public ModelAndView read(int review_num, HttpServletRequest request, Reply r) {
+		//@RequestParam(required = false) 
 		Review review = service.selectReview(review_num);
-		List<Reply> reply =rSer.selectReply(review_num);
-		
-		//이렇게 하려면 if문이 있어야하는데 if의 조건을 뭐라고 하지??
-//		if(){
-//		rSer.writeReply(r, request);
-//		}
-		//여기에 write까지 해도 맞나??
-		//새로운 컨트롤러 만들어서 redirect?
-		
-		
+
+		if (r.getReply() != null) {
+
+			rSer.writeReply(r, request);
+			
+		}
+
+
+		List<Reply> reply = rSer.selectReply(review_num);
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("review", review);
 		mv.addObject("reply", reply);
 		mv.setViewName("read_review");
-		
+
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
 
-	// @RequestMapping("/recommendReview.do")
-	// public String recommand(int review_num) {
-	// service.recommendCount(review_num);
-	// return "read_review";
-	// }
-
-	// 추천수는 테이블 하나 더 만들어야 되서 포기
+	
 }
