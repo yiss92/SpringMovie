@@ -64,9 +64,9 @@
 					<article class="span8">
 						<br>
 						<form action="writeComment.do" method="post">
-							영화제목 <input type="text" name="movie_title" size="10"><br>
-							한줄평 <input type="text" name="comment"  size="100"><br>
-							평점 <input type="text" name="score" ><br>
+							 <input type="text" name="movie_title" size="10" value='영화제목' onfocus="this.value=''" ><br>
+							 <input type="text" name="comment"  size="100" value='한줄평' onfocus="this.value=''" ><br>
+							 <input type="text" name="score" value='평점' onfocus="this.value=''"  ><br>
 							<input type="submit" value="작성">
 						
 						</form>
