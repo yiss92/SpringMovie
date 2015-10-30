@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +9,8 @@
 </head>
 <body>
 <form action="write.do" method="post">
-	아이디:<input type="text" name="guestName" size="10"><br>
-	비밀번호:<input type="password" name="password" size="10"><br>
-	남길 메시지:<textarea rows="10" cols="20" name="message"></textarea>
+	제목:<input type="text" name="title" size="10"><br>	
+	남길 메시지:<textarea rows="10" cols="20" name="comment"></textarea>
 	<input type="submit" value="작성">
 </form>
 
@@ -32,8 +32,8 @@
 					제목: ${freeboard.title}<br>
 					글내용: ${freeboard.comment}<br>
 					작성일: ${freeboard.date}<br>
-					<a href="modifyForm.do?messageId=${freeboard.boardNo}">[수정하기]</a>
-					<a href="deleteForm.do?messageId=${freeboard.boardNo}">[삭제하기]</a>
+					<a href="modifyForm.do?boardNo=${freeboard.boardNo}">[수정하기]</a>
+					<a href="deleteFreeBoardForm.do?boardNo=${freeboard.boardNo}">[삭제하기]</a>
 				</td>
 			</tr>
 		</c:forEach>

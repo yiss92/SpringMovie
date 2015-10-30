@@ -3,30 +3,30 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.MessageBoardMapper">
+<mapper namespace="mapper.FreeBoradMapper">
 
 	<insert id="insertComment" parameterType="FreeBoard">
 		INSERT INTO
-		FREEBOARD(GUEST_NAME, PASSWORD, TITLE, COMMENT, DATE)
-		VALUES(#{guestName},#{password},#{title},#{comment},#{date})
+		FREEBOARD(ID, TITLE, COMMENT, date, PASSWORD)
+		VALUES(#{id},#{title},#{comment},#{date},#{password})
 	</insert>
 
-	<update id="upodateComment" parameterType="FreeBoard">
+	<update id="updateComment" parameterType="FreeBoard">
 		UPDATE FREEBOARD SET
-		COMMENT=#{comment} WHERE MESSAGE_ID=#{messageId}
+		COMMENT=#{comment} WHERE BOARDNO=#{boardNo}
 	</update>
 
 	<delete id="deleteComment" parameterType="Integer">
 		DELETE FROM FREEBOARD
-		WHERE ID=#{id}
+		WHERE BOARDNO=#{boardNo}
 	</delete>
 
 	<select id="selectComment" parameterType="Integer" resultMap="freeboardMap">
-		SELECT * FROM FREEBOARD WHERE ID=#{id}
+		SELECT * FROM FREEBOARD WHERE BOARDNO=#{boardNo}
 	</select>
 
 	<select id="selectCommentList" parameterType="Map" resultMap="freeboardMap">
-		SELECT * FROM GUESTBOOK ORDER BY MESSAGE_ID DESC
+		SELECT * FROM FREEBOARD ORDER BY BOARDNO DESC
 		LIMIT #{startRow},#{rowCount}
 	</select>
 
@@ -36,13 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<resultMap type="FreeBoard" id="freeboardMap">
-		<result column="MESSAGE_ID" property="messageId" />
-		<result column="GUEST_NAME" property="guestName" />
-		<result column="PASSWORD" property="password" />
+		<result column="BOARDNO" property="boardNo" />
+		<result column="ID" property="id" />
 		<result column="TITLE" property="title" />
 		<result column="COMMENT" property="comment" />
-		<result column="DATE" property="date" />
-		<result column="BOARD_PAGE" property="boardPage" />
+		<result column="date" property="date" />
+		<result column="PASSWORD" property="password" />
 	</resultMap>
 
 </mapper>

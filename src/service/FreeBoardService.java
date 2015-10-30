@@ -1,16 +1,14 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import repository.FreeBoardDao;
-import sun.print.resources.serviceui;
-import vo.Comment;
 import vo.FreeBoard;
 import vo.FreeBoardPage;
 
@@ -27,17 +25,24 @@ public class FreeBoardService {
 	public boolean writeComment(FreeBoard comment, HttpSession session) {
 		comment.setPassword((String) session.getAttribute("password"));
 		comment.setId((String) session.getAttribute("id"));
+		comment.setDate(new Date());
 		if (dao.insert(comment) > 0)
 			return true;
 		else
 			return false;
 	}
+	
+	public FreeBoard select(int boardNo){
+		FreeBoard freeBoard = dao.select(boardNo);
+		return freeBoard;
+	}
 
-	public boolean modifyFreeBoard(FreeBoard comment, HttpSession session) {
-		String password = ((String) session.getAttribute("password"));
-		FreeBoard original = dao.select(comment.getBoardNo());
-		if (original.getPassword().equals(password)) {
-			dao.update(comment);
+	public boolean modifyFreeBoard(FreeBoard freeboard, HttpSession session) {
+		String id = ((String) session.getAttribute("id"));
+		System.out.println(freeboard.getBoardNo());
+		FreeBoard original = dao.select(freeboard.getBoardNo());
+		if (original.getId().equals(id)) {
+			dao.update(freeboard);
 			return true;
 		} else {
 			return false;
