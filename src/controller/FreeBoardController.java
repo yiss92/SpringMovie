@@ -64,6 +64,8 @@ public class FreeBoardController {
 	@RequestMapping("/modify.do")
 	public String modifyFreeBoard(int boardNo, String comment, HttpSession session) {
 		FreeBoard original = service.select(boardNo);
+		original.setComment(comment);
+		System.out.println(comment);
 		String id = (String) session.getAttribute("id");
 		if (original.getId().equals(id)) {
 			if(service.modifyFreeBoard(original, session)){
@@ -95,12 +97,12 @@ public class FreeBoardController {
 	}
 
 	@RequestMapping("/deleteFreeBoardForm.do")
-	public String delete(int boardNo, String password, HttpSession session) {
+	public String delete(int boardNo,  HttpSession session) {
 		FreeBoard original = service.select(boardNo);
 		String id = (String) session.getAttribute("id");
 
 		if (original.getId().equals(id)) {
-			if (service.deleteFreeBoard(boardNo, password)) {
+			if (service.deleteFreeBoard(boardNo, session)) {
 				return "delete_freeboard_complete";
 			} else {
 				return "delete_freeboard_fail";

@@ -49,9 +49,10 @@ public class FreeBoardService {
 		}
 	}
 
-	public boolean deleteFreeBoard(int boardNo, String password) {
+	public boolean deleteFreeBoard(int boardNo, HttpSession session) {
 		FreeBoard original = dao.select(boardNo);
-		if (original.getPassword().equals(password)) {
+		String id = (String)session.getAttribute("id");
+		if (original.getId().equals(id)) {
 			dao.delete(boardNo);
 			return true;
 		} else {
