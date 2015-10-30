@@ -38,7 +38,7 @@ public class MemberController {
 	@RequestMapping("/loginForm.do")
 	public String login(HttpSession session) {
 
-		return "loginform";
+		return "index";
 	}
 
 	@RequestMapping(value = "logginForm.do", method = RequestMethod.POST)
